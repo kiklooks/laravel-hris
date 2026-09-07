@@ -1,15 +1,16 @@
 <script setup lang="ts">
+import AppLayout from '../Layouts/AppLayout.vue';
 </script>
 
 <template>
-    <div class="min-h-screen bg-slate-100 p-8">
-        <div class="mx-auto max-w-7xl">
+    <AppLayout>
+        <div>
             <h1 class="text-3xl font-bold text-slate-900">
-                HRIS Dashboard
+                Dashboard
             </h1>
 
             <p class="mt-2 text-slate-600">
-                Laravel 13 + Inertia 3 + Vue 3 + TypeScript + Tailwind CSS 4
+                Selamat datang di Human Resource Information System.
             </p>
 
             <div class="mt-8 grid gap-6 md:grid-cols-3">
@@ -44,5 +45,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </AppLayout>
 </template>
