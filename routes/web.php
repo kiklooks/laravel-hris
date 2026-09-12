@@ -9,4 +9,4 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
-})->middleware('auth')->name('dashboard');
+})->middleware(['auth', 'permission:employee.view'])->name('dashboard');
