@@ -47,13 +47,15 @@ const navigationSections = [
                 label: 'Karyawan',
                 icon: Users,
                 href: '/employees',
+                permission: 'employees.view',
                 active: true,
             },
             {
                 label: 'Departemen',
                 icon: Building2,
-                href: '#',
-                active: false,
+                href: '/departments',
+                permission: 'departments.view',
+                active: true,
             },
             {
                 label: 'Jabatan',

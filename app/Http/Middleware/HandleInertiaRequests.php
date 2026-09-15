@@ -53,9 +53,19 @@ class HandleInertiaRequests extends Middleware
                             'employee.create' => $request->user()->hasPermission('employee.create'),
                             'employee.update' => $request->user()->hasPermission('employee.update'),
                             'employee.delete' => $request->user()->hasPermission('employee.delete'),
+
+                            'department.view' => $request->user()->hasPermission('department.view'),
+                            'department.create' => $request->user()->hasPermission('department.create'),
+                            'department.update' => $request->user()->hasPermission('department.update'),
+                            'department.delete' => $request->user()->hasPermission('department.delete'),
                         ],
                     ]
                     : null,
+            ],
+
+            'flash' => [
+                'success' => fn () => $request->session()->get('success'),
+                'error' => fn () => $request->session()->get('error'),
             ],
         ];
     }

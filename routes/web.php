@@ -3,6 +3,7 @@
 use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\DepartmentController;
 
 Route::get('/', function () {
     return redirect()->route('dashboard');
@@ -36,4 +37,28 @@ Route::middleware('auth')->group(function () {
     Route::delete('/employees/{employee}', [EmployeeController::class, 'destroy'])
         ->middleware('permission:employee.delete')
         ->name('employees.destroy');
+
+    Route::get('/departments', [DepartmentController::class, 'index'])
+        ->middleware('permission:department.view')
+        ->name('departments.index');
+    
+    Route::get('/departments/create', [DepartmentController::class, 'create'])
+        ->middleware('permission:department.create')
+        ->name('departments.create');
+    
+    Route::post('/departments', [DepartmentController::class, 'store'])
+        ->middleware('permission:department.create')
+        ->name('departments.store');
+    
+    Route::get('/departments/{department}/edit', [DepartmentController::class, 'edit'])
+        ->middleware('permission:department.update')
+        ->name('departments.edit');
+    
+    Route::put('/departments/{department}', [DepartmentController::class, 'update'])
+        ->middleware('permission:department.update')
+        ->name('departments.update');
+    
+    Route::delete('/departments/{department}', [DepartmentController::class, 'destroy'])
+        ->middleware('permission:department.delete')
+        ->name('departments.destroy');
 });
