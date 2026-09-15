@@ -46,8 +46,8 @@ const navigationSections = [
             {
                 label: 'Karyawan',
                 icon: Users,
-                href: '#',
-                active: false,
+                href: '/employees',
+                active: true,
             },
             {
                 label: 'Departemen',

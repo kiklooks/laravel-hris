@@ -37,7 +37,26 @@ class HandleInertiaRequests extends Middleware
     {
         return [
             ...parent::share($request),
-            //
+
+            'auth' => [
+                'user' => $request->user()
+                    ? [
+                        'id' => $request->user()->id,
+                        'name' => $request->user()->name,
+                        'email' => $request->user()->email,
+                        'roles' => $request->user()
+                            ->roles()
+                            ->pluck('slug')
+                            ->values(),
+                        'permissions' => [
+                            'employee.view' => $request->user()->hasPermission('employee.view'),
+                            'employee.create' => $request->user()->hasPermission('employee.create'),
+                            'employee.update' => $request->user()->hasPermission('employee.update'),
+                            'employee.delete' => $request->user()->hasPermission('employee.delete'),
+                        ],
+                    ]
+                    : null,
+            ],
         ];
     }
 }
