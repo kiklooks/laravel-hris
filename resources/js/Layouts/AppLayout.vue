@@ -60,8 +60,9 @@ const navigationSections = [
             {
                 label: 'Jabatan',
                 icon: BriefcaseBusiness,
-                href: '#',
-                active: false,
+                href: '/positions',
+                permission: 'position.view',
+                active: true,
             },
         ],
     },
